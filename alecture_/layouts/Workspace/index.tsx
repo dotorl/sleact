@@ -1,3 +1,5 @@
+import ChannelList from '@components/ChannelList';
+import DMList from '@components/DMList';
 import fetcher from '@utils/fetcher';
 import axios from 'axios';
 import React, { FC, useCallback, useState, VFC } from 'react';
@@ -173,14 +175,14 @@ const Workspace: VFC = () => {
             {channelData?.map((v) => (
               <div>{v.name}</div>
             ))}
-            {/* <ChannelList />
-            <DMList /> */}
+            <ChannelList />
+            <DMList />
           </MenuScroll>
         </Channels>
         <Chats>
           <Switch>
             <Route path="/workspace/:workspace/channel/:channel" component={Channel} />
-            <Route path="/workspace/dm/:id" component={DirectMessage} />
+            <Route path="/workspace/:workspace/dm/:id" component={DirectMessage} />
           </Switch>
         </Chats>
       </WorkspaceWrapper>
