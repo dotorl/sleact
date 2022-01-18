@@ -60,8 +60,8 @@ const Workspace: VFC = () => {
       .then((response) => {
         revalidate();
       })
-      .catch((error) => {
-        // setLogInError(error.response?.data?.statusCode === 401);
+      .catch((error) => { 
+        // setLogInError(error.response?.data?.statusCode === 401); / 
       });
   }, []);
 
