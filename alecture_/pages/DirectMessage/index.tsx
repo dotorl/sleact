@@ -5,11 +5,11 @@ import useInput from '@hooks/useInput';
 import { Container, Header, DragOver } from '@pages/DirectMessage/styles';
 import { IDM } from '@typings/db';
 import fetcher from '@utils/fetcher';
-// import makeSection from '@utils/makeSection';
+import makeSection from '@utils/makeSection';
 import axios from 'axios';
 import React, { useCallback, useEffect, useRef, useState } from 'react';
 import gravatar from 'gravatar';
-// import Scrollbars from 'react-custom-scrollbars';
+import Scrollbars from 'react-custom-scrollbars-2';
 import { useParams } from 'react-router';
 import useSWR, { useSWRInfinite } from 'swr';
 
@@ -30,7 +30,7 @@ const DirectMessage = () => {
   // const [socket] = useSocket(workspace);
   const isEmpty = chatData?.[0]?.length === 0;
   const isReachingEnd = isEmpty || (chatData && chatData[chatData.length - 1]?.length < 20) || false;
-  // const scrollbarRef = useRef<Scrollbars>(null);
+  const scrollbarRef = useRef<Scrollbars>(null);
   const [dragOver, setDragOver] = useState(false);
 
   const onSubmitForm = () => {};
@@ -146,7 +146,7 @@ const DirectMessage = () => {
     return null;
   }
 
-  // const chatSections = makeSection(chatData ? chatData.flat().reverse() : []);
+  const chatSections = makeSection(chatData ? chatData.flat().reverse() : []);
 
   return (
     <Container>
